@@ -1,0 +1,33 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "Working examples",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jasmine-core": "^3.2.1",
+    "karma": "^3.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-firefox-launcher": "^1.1.0",
+    "karma-jasmine": "^1.1.2"
+  },
+  "scripts": {
+    "test": "karma start my.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madhusudhanakn/workspace.git"
+  },
+  "keywords": [
+    "JavaScript"
+  ],
+  "author": "Madhu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/madhusudhanakn/workspace/issues"
+  },
+  "homepage": "https://github.com/madhusudhanakn/workspace#readme"
+}
