@@ -1,9 +1,16 @@
-# workspace
-This  repository is only for working and learning examples.
+# Problem Solving JavaScript
+This repository is used for problem solving using JavaScript.
 
-1. Angular js 2
-2. Node JS
-3. Portfolio 
-4. CSS Template Design using Flex box
-5. LESS Template Design
-6. Grunt project creation
+* Bit Count
+* Digital Root (Sum of Digits)
+* Step Numbers 
+* FizzBuzz
+* Find High and Low number in a set
+* Longest Palindrome in given string
+* Remove Duplicate in array
+* Remove the number from array
+* Remove Vowels
+* Reverse Number
+* Convert roman numeral to an integer
+* Unique String
+* Two Sum 
