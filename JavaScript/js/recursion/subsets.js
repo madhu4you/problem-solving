@@ -2,17 +2,18 @@
 - Find the subset of the given number
 - input {1, 2, 3}
 */
-function subsets(input) {
-    let totalSubset = Math.pow(2, input.length);
-    return helper([], input);
+function generate_all_subsets(s) {
+    let allSubset = [];
+    return helper(input, allSubset, 0, "");
 }
 
-function helper(subSet, input) {
-    if(input.length === 0) {
-        return subset;
+function helper(input, allSubset, index, subset) {
+    if(index === input.length) {
+        allSubset.push(subset);
     }
     else {
-        include = helper(subset, input[i]);
-        exclude = helper(subset + input[0]);
+        helper(input, allSubset, index+1, subset);
+        helper(input, allSubset, index+1, subset + input[index]);
     }
-} 
+  return allSubset;
+}
