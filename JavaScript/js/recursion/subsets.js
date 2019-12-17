@@ -8,12 +8,28 @@ function generate_all_subsets(s) {
 }
 
 function helper(input, allSubset, index, subset) {
-    if(index === input.length) {
+    if (index === input.length) {
         allSubset.push(subset);
+        return;
+    } else {
+        helper(input, allSubset, index + 1, subset);
+        helper(input, allSubset, index + 1, subset + input[index]);
     }
-    else {
-        helper(input, allSubset, index+1, subset);
-        helper(input, allSubset, index+1, subset + input[index]);
+    return allSubset;
+}
+
+function generate_all_subsets(s) {
+    let allSubset = [];
+    helper(0, "");
+
+    function helper(index, subset) {
+        if (index === s.length) {
+            allSubset.push(subset);
+            return;
+        } else {
+            helper(index + 1, subset);
+            helper(index + 1, subset + s[index]);
+        }
     }
-  return allSubset;
+    return allSubset;
 }
