@@ -52,3 +52,21 @@ function helperTree(node, result) {
     result[0] += 1;
     return true;
 }
+
+
+function univalTree(root) {
+    let result = [0];
+    uinvalHelper(root);
+    return result[0];
+
+    function uinvalHelper(node) {
+        if (!node) return true;
+        let isLeft = uinvalHelper(node.left_ptr);
+        let isRight = uinvalHelper(node.right_ptr);
+        if (!isLeft || !isRight) return false;
+        if (node.left_ptr !== null && node.val !== node.left_ptr.val) return false;
+        if (node.right_ptr !== null && node.val !== node.right_ptr.val) return false;
+        result[0]++;
+        return true;
+    }
+}
