@@ -1,4 +1,6 @@
 /**
+ * https://www.geeksforgeeks.org/count-ways-reach-nth-stair-using-step-1-2-3/
+ * https://www.geeksforgeeks.org/count-ways-reach-nth-stair/
  * Climbing the stairs
  * "n" is stairs ex: n =3
  * "k" sets ex: k = {1, 2}
