@@ -23,8 +23,8 @@ console.log(coinsFromBag([8, 15, 3, 7]));
 function game(coins) {
     let size = coins.length;
     let table = [[]];
-    for (i = 0; i <= size; i++) {
-        for (j =0; j <= size - i; j++) {
+    for (let gap = 0; gap < size; ++gap) { 
+        for (let i = 0, j = gap; j < size; ++i, ++j)  {
             let x = ((i + 2) <= j) ? table[i + 2][j] : 0; 
             let y = ((i + 1) <= (j - 1)) ? table[i + 1][j - 1] : 0; 
             let z = (i <= (j - 2)) ? table[i][j - 2] : 0; 
