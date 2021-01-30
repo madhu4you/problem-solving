@@ -5,6 +5,8 @@
  * A = bcc;
  * B = bbca;
  * c = bbcbcac;
+ * Time Complexity: O(MN)
+ * Auxiliary Space: O(MN)
  */
 
 function isInterleaved(A, B, C) 
@@ -24,8 +26,8 @@ function isInterleaved(A, B, C)
         return false; 
   
     // Process all characters of A and B 
-    for (int i = 0; i <= sizeA; ++i) { 
-        for (int j = 0; j <= sizeB; ++j) { 
+    for (let i = 0; i <= sizeA; ++i) { 
+        for (let j = 0; j <= sizeB; ++j) { 
             // two empty strings have an empty string 
             // as interleaving 
             if (i == 0 && j == 0) 
