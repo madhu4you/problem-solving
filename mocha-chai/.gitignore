@@ -1,0 +1,8 @@
+node_modules
+npm-debug.log
+dist
+.DS_Store
+.idea
+index.bundle.js
+index.bundle.min.js
+package-lock.json
