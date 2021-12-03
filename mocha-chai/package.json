@@ -1,0 +1,21 @@
+{
+  "name": "mocha-chai",
+  "version": "1.0.0",
+  "description": "Mocha Test Workspace",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha || true"
+  },
+  "keywords": [
+    "Mocha",
+    "Chai",
+    "JavaScript"
+  ],
+  "author": "Madhu",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.2"
+  },
+  "dependencies": {}
+}
