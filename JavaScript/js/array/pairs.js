@@ -12,8 +12,8 @@ const fromPairs = (array) => array.reduce((acc, value) => {
     }
     return acc;
 }, {});
-const data = [
+const pairData = [
   ["a", 1],
   ["b", 2],
 ];
-console.log(fromPairs(data)); // { 'a': 1, 'b': 2 }
+console.log(fromPairs(pairData)); // { 'a': 1, 'b': 2 }
