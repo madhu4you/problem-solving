@@ -6,7 +6,7 @@ var reverseNumber = function (num) {
     return Number(num);
 }
 
-var reverse = function (x) {
+var reverseNum = function (x) {
     let negative = false;
     let output = 0;
     if (x < 0) {
@@ -26,8 +26,8 @@ var reverse = function (x) {
     return output;
 }
 
-console.log(reverse(1534));
-console.log(reverse(1534236469));
+console.log(reverseNum(1534));
+console.log(reverseNum(1534236469));
 
 var numberReverse = function (x) {
     let negative = false;
