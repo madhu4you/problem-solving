@@ -1,13 +1,13 @@
-let list = function () {
+let listLink = function () {
     let head = null;
     let length = 0;
-    let Node = function (element) {
+    let NodeListLink = function (element) {
         this.data = element;
         this.next = null;
     }
 
     let add = function (element) {
-        let node = new node(element);
+        let node = new NodeListLink(element);
         if (head === null) {
             head = node;
         } else {

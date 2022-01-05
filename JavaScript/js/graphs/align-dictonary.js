@@ -7,7 +7,7 @@ function find_order(words) {
 
     function printOrder(words, alpha) {
         // Create a graph with 'aplha' edges 
-        let graph = new Graph(alpha);
+        let graph = new GraphNode(alpha);
 
         for (let i = 0; i < words.length - 1; i++) {
             // Take the current two words and find the first mismatching 
@@ -29,7 +29,7 @@ function find_order(words) {
     }
 }
 
-function Graph() {
+function GraphNode() {
     let adjacencyList = [];
     let output = [];
 
@@ -91,7 +91,7 @@ function Graph() {
 }
 
 
-class Node {
+class NodeTree {
     constructor(value) {
         this.value = value;
         this.adjacents = []; // adjacency list

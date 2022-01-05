@@ -4,7 +4,7 @@ class Node {
         this.next = null;
     }
 }
-class linkedList {
+class linkedListClass {
     constructor(head = null) {
         this.head = head;
         this.length = 0;
@@ -131,19 +131,19 @@ class linkedList {
     }
 }
 
-let list = new linkedList();
-list.addData(10);
-list.addData(20);
+let listObj = new linkedListClass();
+listObj.addData(10);
+listObj.addData(20);
 let node1 = new Node(1);
 let node2 = new Node(3);
 let node3 = new Node(4);
 let node4 = new Node(5);
-list.add(node1);
-list.add(node2);
-list.add(node3);
-list.add(node4);
-console.log(list.size());
-list.remove(3);
-console.log(list.getLength());
-console.log(list.getFirst());
-console.log(list.getLast());
+listObj.add(node1);
+listObj.add(node2);
+listObj.add(node3);
+listObj.add(node4);
+console.log(listObj.size());
+listObj.remove(3);
+console.log(listObj.getLength());
+console.log(listObj.getFirst());
+console.log(listObj.getLast());

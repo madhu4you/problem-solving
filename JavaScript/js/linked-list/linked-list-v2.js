@@ -1,4 +1,4 @@
-class Node {
+class NodeList {
     constructor(data) {
         this.data = data;
         this.next = null;
@@ -21,7 +21,7 @@ class linkedList {
         return this.head === null;
     }
     add(data) {
-        let node = new Node(data);
+        let node = new NodeList(data);
         if (this.head === null) {
             this.head = node;
         } else {
@@ -31,7 +31,7 @@ class linkedList {
         this.length++;
     }
     addIndex(data, index) {
-        let node = new Node(data);
+        let node = new NodeList(data);
         let currentNode = this.head;
         let currentIndex = 0;
         let previousNode;

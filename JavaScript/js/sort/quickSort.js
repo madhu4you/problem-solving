@@ -1,4 +1,7 @@
 function sort(arr) {
+    function swap (arr, a, b) {
+        [arr[a], arr[b]] = [arr[b], arr[a]] 
+    }
     function quicksort(arr, start, end) {
         if (arr.length <= 0) return false;
 
@@ -34,4 +37,4 @@ function sort(arr) {
     return quicksort(arr, 0, arr.length - 1);
 }
 
-console(sort([3, 4, 5, 2, 1]));
+console.log(sort([3, 4, 5, 2, 1]));

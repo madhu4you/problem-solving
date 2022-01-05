@@ -1,4 +1,4 @@
-let linkedList = function () {
+let linkedListMethod = function () {
     let length;
     let head = null;
     let Node = function (element) {
