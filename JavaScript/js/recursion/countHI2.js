@@ -7,7 +7,10 @@
 
 
 let countHi2 = (str) => {
-
+    if(str.length < 3) return 0;
+    if(str.charAt(0) !== 'x' && str.substring(1, 3) === 'hi') 
+        return 1 + countHi2(str.substring(2));
+    return countHi2(str.substring(1));
 }
 
 console.log(countHi2("ahixhi"));
