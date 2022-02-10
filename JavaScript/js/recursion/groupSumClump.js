@@ -16,18 +16,7 @@ let groupSumClump = (start, nums, target) => {
   }
   let i = start + 1;
   for (; i < nums.length && nums[start] === nums[i]; i++);
-    if (groupSumClump(i, nums, target - (i - start) * nums[start])) return true;
-
-  return groupSumClump(i, nums, target);
-};
-
-let groupSumClump2 = (start, nums, target) => {
-  if (start >= nums.length) {
-    if (target == 0) return true;
-    return false;
-  }
-  let i = start + 1;
-  for (; i < nums.length && nums[start] == nums[i]; i++);
+    
   if (groupSumClump(i, nums, target - (i - start) * nums[start])) return true;
   return groupSumClump(i, nums, target);
 };
