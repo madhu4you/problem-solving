@@ -3,6 +3,8 @@ function fib(n) {
     return fib(n - 1) + fib(n - 2);
 }
 
+console.log(fib(5));
+
 //Top Down Dynamic programming
 
 function fibonacci(n) {
@@ -34,3 +36,10 @@ function fib(n) {
     }
     return tabel[n % 3];
 }
+
+let fibRec = (n, b1, b2) => {
+    if(n === 0) return b2;
+    return fibRec(n - 1, b2, b1+b2);
+}
+
+console.log(fibRec(5, 0, 1));

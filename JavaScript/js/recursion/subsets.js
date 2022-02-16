@@ -2,7 +2,7 @@
 - Find the subset of the given number
 - input {1, 2, 3}
 */
-function generate_all_subsets(s) {
+function generate_all_subsets(input) {
     let allSubset = [];
     return helper(input, allSubset, 0, "");
 }
