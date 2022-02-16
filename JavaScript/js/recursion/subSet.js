@@ -1,26 +1,15 @@
-/**
- * subSet([1,2,3])
- * Output:
- * [[], [1], [2], [3], [1,2],[2,3],[1,3], [1,2,3]];
- */
-
-function subSet(nums) {
-    if(nums.length < 1) return false;
-    let result = [];
-    let sHelper = (i, set) => {
-        if(i === nums.length) {
-            result.push([...set]);
-            return;
-        }
-        else {
-            sHelper(i+1, set);
-            set.push(nums[i]);
-            sHelper(i+1, set);
-            set.pop(nums[i]);
-        }
+let allSubsets = (input) => {
+  let output = [];
+  let subset = (index, set) => {
+    if (index === input.length) {
+      output.push(set);
+      return;
     }
-    sHelper(0, []);
-    return result;
-}
+    subset(index + 1, set);
+    subset(index + 1, set + input[index]);
+  };
+  subset(0, "");
+  return output;
+};
 
-console.log(subSet([1,2,3]));
+console.log(allSubsets(["a", "b", "c"]));
