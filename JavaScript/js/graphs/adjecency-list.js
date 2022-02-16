@@ -1,4 +1,4 @@
-class Graph {
+class GraphList {
     constructor(value) {
         this.value = value;
         this.adjList = [];

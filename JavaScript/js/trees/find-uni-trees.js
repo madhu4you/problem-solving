@@ -1,5 +1,5 @@
 let BinaryTree = function () {
-    let Node = function (value) {
+    let NodeBinaryTree = function (value) {
         this.value = value;
         this.left = null;
         this.right = null;
