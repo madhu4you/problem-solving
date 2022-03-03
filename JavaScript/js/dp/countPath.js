@@ -1,5 +1,5 @@
 function countPaths(m, n) {
-    let table = new Array(m);
+    let table = [[]];
 
     for(let i = 0; i < m; i++) {
         table[i][0] = 1;
