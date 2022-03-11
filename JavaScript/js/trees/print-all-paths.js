@@ -1,7 +1,7 @@
 function printAllPaths(root) {
     if (!root) return;
     let allPaths = [];
-    printHelper(node, path) {
+    function printHelper(node, path) {
         path.push(node.val);
         if (!node.left_ptr && !node.right_ptr) {
             allPaths.push(path.slice(0));
