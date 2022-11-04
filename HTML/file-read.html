@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            input[type=text],
+            select {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            input[type=submit] {
+                width: 100%;
+                background-color: #4CAF50;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+
+            .form {
+                border-radius: 5px;
+                background-color: #f2f2f2;
+                padding: 20px;
+                width: 20rem;
+                margin: 0 auto;
+            }
+
+            .results {
+                font-family: Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            .results td,
+            .results th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            .results tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            .results tr:hover {
+                background-color: #ddd;
+            }
+
+            .results th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #04AA6D;
+                color: white;
+            }
+            .thumbnails {
+                width: 4rem;
+                height: 4rem;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+        <div class="form">
+            <form id="myForm">
+                <input type="file" id="csvFile" accept=".csv" />
+                <br />
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+        <div class="table-data">
+
+        </div>
+    </body>
+    <script>
+        const myForm = document.getElementById("myForm");
+        const csvFile = document.getElementById("csvFile");
+
+        myForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const input = csvFile.files[0];
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                const text = event.target.result;
+                const data = csvToArray(text);
+                constructTable(data);
+            };
+            reader.readAsText(input);
+        });
+
+        function csvToArray(str, delimiter = ",") {
+            // slice from start of text to the first \n index
+            // use split to create an array from string by delimiter
+            const headers = str.slice(0, str.indexOf("\n")).split(delimiter);
+
+            // slice from \n index + 1 to the end of the text
+            // use split to create an array of each csv value row
+            const rows = str.slice(str.indexOf("\n") + 1).split("\n");
+
+            const arr = rows.map(function (row) {
+                const values = row.split(delimiter);
+                const el = headers.reduce(function (object, header, index) {
+                    object[header] = values[index];
+                    return object;
+                }, {});
+                return el;
+            });
+
+            // return the array
+            return arr;
+        }
+
+        function constructTable(list) {
+            let selector = document.querySelector(".table-data");
+            let table = document.createElement("table");
+            table.setAttribute("class", "results");
+
+            // Getting the all column names
+            let cols = headers(list, table);
+            body(cols, list, table);
+            selector.append(table);
+        }
+
+        function body(column, list, table) {
+            let tBody = document.createElement("tbody");
+            // Traversing the JSON data
+            for (let i = 0; i < list.length; i++) {
+                let row = document.createElement("tr");
+                for (let colIndex = 0; colIndex < column.length; colIndex++) {
+                    let val = list[i][column[colIndex]];
+
+                    // If there is any key, which is matching
+                    // with the column name
+                    if (val === null) val = "";
+                    let tD = document.createElement("td");
+                    if (isURL(val)) {
+                        let img = document.createElement("img");
+                        img.setAttribute("src", val);
+                        img.setAttribute("alt", "Thumbnail");
+                        img.setAttribute("class", "thumbnails")
+                        tD.append(img);
+                    } else {
+                        tD.append(val);
+                    }
+
+                    row.append(tD);
+                }
+                tBody.append(row);
+            }
+            // Appending the data to the tbody
+            table.append(tBody);
+        }
+
+        function isURL(str) {
+            var expression = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+            var regex = new RegExp(expression);
+            return str.match(regex);
+        }
+
+        function headers(list, table) {
+            let columns = [];
+            let tHead = document.createElement("thead");
+            let row = document.createElement("tr");
+
+            for (let i = 0; i < list.length; i++) {
+                let rowValue = list[i];
+                for (let k in rowValue) {
+                    if (columns.indexOf(k) == -1) {
+                        columns.push(k);
+                        let tH = document.createElement("th");
+                        // Creating the header
+                        tH.append(k);
+                        row.append(tH);
+                    }
+                }
+            }
+            tHead.append(row);
+            // Appending the header to the table
+            table.append(tHead);
+            return columns;
+        } 
+    </script>
+
+</html>
